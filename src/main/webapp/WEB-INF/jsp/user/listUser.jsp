@@ -27,13 +27,14 @@
                 <h6><a href="principal.jsp" class="logo">OngWeb</a></h6>
                 <ul class="list-unstyled components mb-5">
                     <li class="active">
-                        <a href="principal.jsp"><span class="fa fa-home"></span>Inicio</a>
+                        <a href="${pageContext.request.contextPath}/"><span class="fa fa-home"></span>Inicio</a>
                     </li>
                     <li>
-                        <a href="listaUsuario.jsp"><span class="fa fa-user"></span> Usuários</a>
+                        <a href="${pageContext.request.contextPath}/user/lista"><span class="fa fa-user"></span> Doadores</a>
+
                     </li>
                     <li>
-                        <a href="listaOngs.jsp"><span class="fa fa-sticky-note"></span> Ongs </a>
+                        <a href="${pageContext.request.contextPath}/ong/lista"><span class="fa fa-sticky-note"></span> Ongs </a>
                     </li>
                     <br>
 
@@ -60,7 +61,7 @@
                             <ul class="nav navbar-nav ml-auto">
                                 <li class="nav-item active">
 
-                                    <a class="nav-link" href="cadastroUsu.jsp"><i class="fa fa-plus "></i>  Cadastrar Usuário</a>
+                                
                                 </li>
                             </ul>
                         </div>
@@ -68,26 +69,26 @@
                 </nav>
 
                 <h7 class="mb-4"> 
-                    <h4>Lista de Usuários</h4><br>
+                    <h4>Lista de Casos</h4><br>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>CPF</th>
-                                <th>Email</th>
-                                <th>Senha</th>
+                                <th>Id</th>
+                                <th>Descrição</th>
+                                <th>Valor</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             <c:forEach items="${user}" var="user">
                                 <tr>
-                                    <td>${user.nome}</td>
-                                    <td>${user.cpf}</td>
-                                    <td>${user.email}</td>
-                                    <td>${user.senha}</td>
+                                    <td>${user.id}</td>
+                                    <td>${user.desc}</td>
+                                    <td>${user.value}</td>
+                                    
                                     <td>
-                                        <a href="${pageContext.request.contextPath}/user/editar/${user.id}"><i class="material-icons teal-text">create</i></a>
-                                        <a href="${pageContext.request.contextPath}/user/remover/${user.id}"><i class="material-icons red-text">delete</i></a>
+                                        <a href="${pageContext.request.contextPath}/user/editar/${user.id}"><i class="btn btn-primary">Doar</i></a>
+                                        
                                     </td>
                                 </tr>
                             </c:forEach>

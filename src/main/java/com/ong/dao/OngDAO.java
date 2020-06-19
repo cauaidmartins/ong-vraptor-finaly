@@ -27,7 +27,7 @@ public class OngDAO {
             em.persist(ong);
             em.getTransaction().commit();
         } catch (Exception e) {
-            System.err.println(e);
+           
             em.getTransaction().rollback();
         } finally {
             em.close();

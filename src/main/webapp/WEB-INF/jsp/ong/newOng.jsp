@@ -24,19 +24,20 @@
                 <h6><a href="principal.jsp" class="logo">OngWeb</a></h6>
                 <ul class="list-unstyled components mb-5">
                     <li class="active">
-                        <a href="principal.jsp"><span class="fa fa-home"></span>Inicio</a>
+                        <a href="${pageContext.request.contextPath}/"><span class="fa fa-home"></span>Inicio</a>
                     </li>
                     <li>
-                        <a href="listaUsuario.jsp"><span class="fa fa-user"></span> Doadores</a>
+                        <a href="${pageContext.request.contextPath}/user/lista"><span class="fa fa-user"></span> Doadores</a>
+
                     </li>
                     <li>
-                        <a href="listaOngs.jsp"><span class="fa fa-sticky-note"></span> Ongs </a>
+                        <a href="${pageContext.request.contextPath}/ong/lista"><span class="fa fa-sticky-note"></span> Ongs </a>
                     </li>
                     <br>
 
                     <div class="footer">
                         <p>
-                        <h7 class="logo">Seja bem vindo, Admin> </h7></p>
+                        <h7 class="logo">Seja bem vindo, <%= request.getAttribute("user")%> </h7></p>
                         <a href="login.jsp" class="logo">Deslogar</a>
                     </div>
             </nav>
@@ -52,9 +53,13 @@
                             <span class="sr-only">Toggle Menu</span>
                         </button>
 
+
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="nav navbar-nav ml-auto">
+                                <li class="nav-item active">
 
+                                    <a class="nav-link" ><i class="fa fa-plus "></i>  Cadastrar Ong</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -68,7 +73,7 @@
                             <input type="text"  name="name" placeholder="Nome" aria-describedby="emailHelp">
                             <input type="tel"  placeholder="Contato" name="number">
                             <input type="email"  placeholder="Email" name="email">
-                            <textarea class="form-control" placeholder="Descrição" id="textarea" name="desc" rows="1"></textarea><br>
+
                             <button>Cadastrar</button>
                         </form>
 
@@ -84,8 +89,8 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
     </body>
+
 </html>
 
 
