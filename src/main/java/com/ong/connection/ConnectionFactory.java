@@ -5,7 +5,7 @@ import javax.persistence.Persistence;
 
 public class ConnectionFactory {
 
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ong-db");
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ong-vraptor-finaly");
 
     private ConnectionFactory() {
     }

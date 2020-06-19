@@ -30,7 +30,7 @@
                         <a href="principal.jsp"><span class="fa fa-home"></span>Inicio</a>
                     </li>
                     <li>
-                        <a href="listaUsuario.jsp"><span class="fa fa-user"></span> Usuários</a>
+                        <a href="listaUsuario.jsp"><span class="fa fa-user"></span> Doadores</a>
                     </li>
                     <li>
                         <a href="listaOngs.jsp"><span class="fa fa-sticky-note"></span> Ongs </a>

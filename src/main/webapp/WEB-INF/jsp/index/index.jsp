@@ -26,7 +26,7 @@
                          <a href="${pageContext.request.contextPath}/"><span class="fa fa-home"></span>Inicio</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/user/lista"><span class="fa fa-user"></span> Usuários</a>
+                        <a href="${pageContext.request.contextPath}/user/lista"><span class="fa fa-user"></span> Doadores</a>
                         
                     </li>
                     <li>
@@ -37,7 +37,7 @@
                     <div class="footer">
                         <p>
                         <h7 class="logo">Seja bem vindo</h7></p>
-                        <a href="login.jsp" class="logo">Login</a>
+                        <a href="${pageContext.request.contextPath}/login.jsp" class="logo">Login</a>
                     </div>
             </nav>
 

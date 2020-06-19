@@ -9,13 +9,32 @@ import javax.enterprise.context.SessionScoped;
 @SessionScoped
 public class AuthSession implements Serializable{
     
-    	private boolean isLogged;
+    private boolean isLogged;
+    private String ongName;
 
-	public boolean isLogged() {
-		return isLogged;
-	}
+    public void setOngName(String ongName) {
+        this.ongName = ongName;
+    }
+    
+    public boolean isLogged(){
+        System.out.println("isLogged " + isLogged);
+        return isLogged;
+    }
 
-	public void setLogged(boolean isLogged) {
-		this.isLogged = isLogged;
-	}
+    public String getUserName() {
+        return ongName;
+    }
+
+    public void setIsLogged(Boolean isLogged) {
+        this.isLogged = isLogged;
+    }
+    
+    public void signout(){
+        this.isLogged = false;
+        this.ongName = null;
+    }
+    
+    
+    
+    
 }

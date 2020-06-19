@@ -23,6 +23,7 @@ public class Ong {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String name;
+    private String email;
     private String desc;
     private Number contact;
         
