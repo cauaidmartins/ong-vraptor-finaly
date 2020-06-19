@@ -74,11 +74,11 @@ public class CaseController {
     }
 
     @Public
-    @Post("simples")
+    @Post("listar")
     public void simpleSearch(Integer caseId) {
 
         List<Case> ca = (List<Case>) caseDAO.findById(caseId);
-        result.include("it", ca);
+        result.include("ca", ca);
         result.of(this).listCase();
 
     }
