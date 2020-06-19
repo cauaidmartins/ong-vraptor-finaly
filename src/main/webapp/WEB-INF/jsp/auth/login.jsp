@@ -24,10 +24,14 @@
         <div class="login-page">
             <div class="form">
                 <h4>Login</h4><br>
-                <form class="login-form" action="LoginServlet" method="post">
-                    <input type="text"  name="login" placeholder="Nome" aria-describedby="emailHelp">
-                    <input type="password"  placeholder="Senha" name="senha">
+                <form class="login-form" action="auth" method="post">
+                    <input type="text" id="userName" name="credentials.userName" placeholder="Nome" aria-describedby="emailHelp">
+                    <input type="password" id="password" name="credentials.password" placeholder="Senha" name="senha">
                     <button>Entrar</button>
+                    <br><br>
+                    <p style='color:red;'>
+                        ${loginErrorMsg}
+                    </p>
                     <p class="message">Não é registrado ? <a href="cadastroUsu.jsp">Registre-se aqui</a></p>
                 </form>
             </div>

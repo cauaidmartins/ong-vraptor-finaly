@@ -34,11 +34,11 @@ public class AuthController {
     @Post("auth")
     public void authenticate(Credentials credentials){
       
-        if (credentials.getOngName().equalsIgnoreCase("ONGX") && 
+        if (credentials.getUserName().equalsIgnoreCase("admin") && 
                 credentials.getPassword().equals("admin")){
-            authSession.setOngName(credentials.getOngName());
+            authSession.setUserName(credentials.getUserName());
             authSession.setIsLogged(true);
-            result.redirectTo(OngController.class).listOng();
+            result.redirectTo(IndexController.class).index();
         }else{
             result.include("loginErrorMsg", "Login inválido!");
             result.redirectTo(this).login();

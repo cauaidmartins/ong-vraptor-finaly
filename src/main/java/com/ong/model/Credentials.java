@@ -5,32 +5,16 @@
  */
 package com.ong.model;
 
+import lombok.Data;
+
 /**
  *
  * @author Lucas Rasec
  */
+@Data
 public class Credentials {
     
-    private String ongName;
+    private String userName;
     private String password;
-
-    public Credentials() {
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getOngName() {
-        return ongName;
-    }
-
-    public void setOngName(String userName) {
-        this.ongName = ongName;
-    }
         
 }

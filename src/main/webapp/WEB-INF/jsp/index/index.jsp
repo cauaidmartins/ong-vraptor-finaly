@@ -37,7 +37,7 @@
                     <div class="footer">
                         <p>
                         <h7 class="logo">Seja bem vindo</h7></p>
-                        <a href="${pageContext.request.contextPath}/login.jsp" class="logo">Login</a>
+                        <a href="${pageContext.request.contextPath}/signin" class="logo">Login</a>
                     </div>
             </nav>
 
