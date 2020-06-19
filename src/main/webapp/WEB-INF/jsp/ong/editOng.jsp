@@ -6,55 +6,85 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Editar Doutor</title>
-        <jsp:include page="../common/head.jsp"></jsp:include>
-            <meta charset="UTF-8">
-        </head>
-        <body>
 
-        <jsp:include page="../common/nav.jsp"></jsp:include>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <title>CadastroOng</title>
 
-            <div class="container"> 
-                <form action="${pageContext.request.contextPath}/medico/atualizar" method="post" style="margin-top: 50px;">
-                <div ><h5 style="text-align: center; margin-top: 100px;"><i class="material-icons">account_box</i> Editar Medico</h5></div>
-                <div>
-                    <input type="hidden" name="doctor.id" value="${doctor.id}">
-                </div>
-                <div class="row">
-                    <div class="input-field col s6 offset-s3 ">
-                        <label class="active" for="name">Nome</label>
-                        <br><input type="text" id="name" name="doctor.name" value="${doctor.name}" class="validate"><br>
+    </head>
+    <body>
+
+        <div class="wrapper d-flex align-items-stretch">
+            <nav id="sidebar" class="active">
+                <h6><a href="principal.jsp" class="logo">OngWeb</a></h6>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a href="principal.jsp"><span class="fa fa-home"></span>Inicio</a>
+                    </li>
+                    <li>
+                        <a href="listaUsuario.jsp"><span class="fa fa-user"></span> Usuários</a>
+                    </li>
+                    <li>
+                        <a href="listaOngs.jsp"><span class="fa fa-sticky-note"></span> Ongs </a>
+                    </li>
+                    <br>
+
+                    <div class="footer">
+                        <p>
+                        <h7 class="logo">Seja bem vindo, Admin> </h7></p>
+                        <a href="login.jsp" class="logo">Deslogar</a>
                     </div>
-                    <div class="input-field col s6 offset-s3 ">
-                        <label class="active" for="rg">RG</label>
-                        <input type="text" id="rg" name="doctor.rg" value="${doctor.rg}" class="validate"><br>
-                    </div>
-                    <div class="input-field col s6 offset-s3 ">
-                        <label class="active" for="age">Idade</label>
-                        <input type="text" id="age" name="doctor.age" value="${doctor.age}" class="validate"><br>
-                    </div>
-                    <div class="input-field col s6 offset-s3 ">
-                        <label class="active" for="specialty">Especialidade</label>
-                        <input type="text" id="specialty" name="doctor.specialty" value="${doctor.specialty}" class="validate"><br>
-                    </div>
-                    <div class="input-field col s6 offset-s3 ">
-                        <label class="active" for="crm">CRM</label>
-                        <input type="text" id="crm" name="doctor.crm" value="${doctor.crm}" class="validate"><br>
-                        <div class="input-field col s3 offset-s5">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Editar Doutor</button>
+            </nav>
+
+            <!-- Page Content  -->
+            <div id="content" class="p-4 p-md-5">
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+
+                        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                            <i class="fa fa-bars"></i>
+                            <span class="sr-only">Toggle Menu</span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav ml-auto">
+
+                            </ul>
                         </div>
-
-                        </form>
                     </div>
+                </nav>
 
-                </div>
+                <h7 class="mb-4">
+
+                    <div class="form">
+                        <h4>Edição de  Ongs</h4><br>
+                        <form class="login-form"  action="${pageContext.request.contextPath}/ong/atualizar" method="post">
+                            <input type="text" placeholder="Nome" name="user.name" value="${ong.name}"  aria-describedby="emailHelp">
+                            <input type="text"  placeholder="Contato" name="user.cpf" value="${ong.contact}">
+                             <textarea class="form-control" placeholder="Descrição" id="textarea" name="ong.desc" value="${ong.contact}" rows="1"></textarea><br>
+                            <button>Editar</button>
+                        </form>
+
+                    </div>
+                </h7>
+            </div>
         </div>
-        <jsp:include page="../common/footer.jsp"></jsp:include>   
-        <jsp:include page="../common/js.jsp"></jsp:include>
 
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/popper.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/main.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     </body>
 </html>
+

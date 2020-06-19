@@ -60,7 +60,7 @@ public class OngController {
         for (Ong ong1 : ong) {
             System.out.println(ong1.getName());
         }
-        result.include("it", ong);
+        result.include("ong", ong);
     }
 
     @Get("remover/{id}")
@@ -73,11 +73,11 @@ public class OngController {
     }
 
     @Public
-    @Post("simples")
+    @Post("listar")
     public void simpleSearch(String ongName) {
 
         List<Ong> ong = (List<Ong>) OngDAO.findByName(ongName);
-        result.include("it", ong);
+        result.include("ong", ong);
         result.of(this).listOng();
 
     }

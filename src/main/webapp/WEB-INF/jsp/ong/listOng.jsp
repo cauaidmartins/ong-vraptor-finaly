@@ -15,7 +15,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -24,7 +24,7 @@
 
     <body><div class="wrapper d-flex align-items-stretch">
             <nav id="sidebar" class="active">
-                <h6><a href="principal.jsp" class="logo">OngWeb</a></h6>
+                <h6><a href="index.jsp" class="logo">OngWeb</a></h6>
                 <ul class="list-unstyled components mb-5">
                     <li class="active">
                         <a href="principal.jsp"><span class="fa fa-home"></span>Inicio</a>
@@ -79,14 +79,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${ongList}" var="ong">
+                            <c:forEach items="${ong}" var="ong">
                                 <tr>
                                     <td>${ong.name}</td>
                                     <td>${ong.number}</td>
                                     <td>${ong.email}</td>
                                     <td>
-                                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/OngServlet?ongId=${ong.id}">Editar</a> 
-                                      
+                                       
+                                        <a  class="btn btn-primary" href="${pageContext.request.contextPath}/ong/editar/${ong.id}"><i class="material-icons teal-text">create</i></a>
+                                        <a  class="btn btn-primary" href="${pageContext.request.contextPath}/ong/remover/${ong.id}"><i class="material-icons red-text">delete</i></a>
                                     </td>
                                 </tr>
                             </c:forEach>

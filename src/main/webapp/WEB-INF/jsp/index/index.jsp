@@ -23,20 +23,21 @@
                 <h6><a href="principal.jsp" class="logo">OngWeb</a></h6>
                 <ul class="list-unstyled components mb-5">
                     <li class="active">
-                        <a href="principal.jsp"><span class="fa fa-home"></span>Inicio</a>
+                         <a href="${pageContext.request.contextPath}/"><span class="fa fa-home"></span>Inicio</a>
                     </li>
                     <li>
-                        <a href="listaUsuario.jsp"><span class="fa fa-user"></span> Usuários</a>
+                        <a href="${pageContext.request.contextPath}/user/lista"><span class="fa fa-user"></span> Usuários</a>
+                        
                     </li>
                     <li>
-                        <a href="listaOngs.jsp"><span class="fa fa-sticky-note"></span> Ongs </a>
+                         <a href="${pageContext.request.contextPath}/ong/lista"><span class="fa fa-sticky-note"></span> Ongs </a>
                     </li>
                     <br>
 
                     <div class="footer">
                         <p>
-                        <h7 class="logo">Seja bem vindo, <%= request.getAttribute("user")%> </h7></p>
-                        <a href="login.jsp" class="logo">Deslogar</a>
+                        <h7 class="logo">Seja bem vindo</h7></p>
+                        <a href="login.jsp" class="logo">Login</a>
                     </div>
             </nav>
 

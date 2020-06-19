@@ -55,7 +55,7 @@ public class UserController {
         for (User user1 : user) {
             System.out.println(user1.getName());
         }
-        result.include("it", user);
+        result.include("user", user);
     }
 
     @Get("remover/{id}")
@@ -68,11 +68,11 @@ public class UserController {
     }
 
     @Public
-    @Post("simples")
+    @Post("listar")
     public void simpleSearch(String userName) {
 
         List<User> user = (List<User>) userDAO.findByName(userName);
-        result.include("it", user);
+        result.include("user", user);
         result.of(this).listUser();
 
     }
