@@ -1,6 +1,6 @@
 <%-- 
     Document   : Login
-    Created on : 16/04/2020, 11:49:57
+    Created on : 18/06/2020, 21:33:57
     Author     : Martins
 --%>
 
@@ -65,13 +65,12 @@
                 <h7 class="mb-4">
 
                     <div class="form">
-                        <h4>Cadastro de Usuário</h4><br>
-                        <form class="login-form" action="UsuarioServlet" method="post">
-                            <input type="text"  name="nome" placeholder="Nome" aria-describedby="emailHelp">
-                            <input type="text"  placeholder="CPF" name="cpf">
-                            <input type="email"  placeholder="Email" name="email">
-                            <input type="password"  placeholder="Senha" name="senha">
-                            <button>Cadastrar</button>
+                        <h4>Edição de Usuário</h4><br>
+                        <form class="login-form"  action="${pageContext.request.contextPath}/user/atualizar" method="post">
+                            <input type="text" placeholder="Nome" name="user.name" value="${user.name}"  aria-describedby="emailHelp">
+                            <input type="text"  placeholder="CPF" name="user.cpf" value="${user.cpf}">
+                            
+                            <button>Editar</button>
                          </form>
                     </div>
 

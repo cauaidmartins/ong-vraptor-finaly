@@ -54,7 +54,7 @@
                             <i class="fa fa-bars"></i>
                             <span class="sr-only">Toggle Menu</span>
                         </button>
-                        
+
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="nav navbar-nav ml-auto">
@@ -79,14 +79,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${userList}" var="user">
+                            <c:forEach items="${it}" var="user">
                                 <tr>
                                     <td>${user.nome}</td>
                                     <td>${user.cpf}</td>
                                     <td>${user.email}</td>
                                     <td>${user.senha}</td>
                                     <td>
-                                        <a href="${pageContext.request.contextPath}/UsuarioServlet?userId=${user.id}" method="PUT">Editar</a>
+                                        <a href="${pageContext.request.contextPath}/user/editar/${user.id}"><i class="material-icons teal-text">create</i></a>
+                                        <a href="${pageContext.request.contextPath}/user/remover/${user.id}"><i class="material-icons red-text">delete</i></a>
                                     </td>
                                 </tr>
                             </c:forEach>
