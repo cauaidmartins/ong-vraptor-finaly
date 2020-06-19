@@ -61,7 +61,7 @@ public class CaseController {
         for (Case ca1 : ca) {
             System.out.println(ca1.getId());
         }
-        result.include("it", ca);
+        result.include("case", ca);
     }
 
     @Get("remover/{id}")
