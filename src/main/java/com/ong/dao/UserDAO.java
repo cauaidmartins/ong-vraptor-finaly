@@ -65,7 +65,7 @@ public class UserDAO {
         List<User> user = null;
 
         try {
-            user = em.createQuery("from User").getResultList();
+            user = em.createQuery("from users").getResultList();
             System.out.println(user);
         } finally {
             em.close();
