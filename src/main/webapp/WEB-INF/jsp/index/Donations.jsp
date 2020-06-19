@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Session
-    Created on : Jun 19, 2020, 3:31:38 PM
+    Document   : Donations
+    Created on : Jun 19, 2020, 6:22:35 PM
     Author     : Lucas Rasec
 --%>
 
@@ -41,8 +41,6 @@
                     </div>
             </nav>
                     
-        <a  class="btn btn-primary" href="${pageContext.request.contextPath}/case/novo"><i class="material-icons teal-text">Novo Caso</i></a>
-                    
         <div id="content" class="p-4 p-md-5">
 
                 <h7 class="mb-4"> 
@@ -57,16 +55,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${case}" var="case">
+                            <c:forEach items="${user}" var="user">
                                 <tr>
-                                    <td>${case.id}</td>
-                                    <td>${case.desc}</td>
-                                    <td>${case.ong}</td>
-                                    <td>${case.value}</td>
+                                    <td>${user.id}</td>
+                                    <td>${user.desc}</td>
+                                    <td>${user.ong}</td>
+                                    <td>${user.value}</td>
                                     <td>
                                        
-                                        <a  class="btn btn-primary" href="${pageContext.request.contextPath}/case/editar/${case.id}"><i class="material-icons teal-text">Editar</i></a>
-                                        <a  class="btn btn-primary" href="${pageContext.request.contextPath}/case/remover/${case.id}"><i class="material-icons red-text">Deletar</i></a>
+                                        <a  class="btn btn-primary" href="${pageContext.request.contextPath}/user/novo/${user.id}"><i class="material-icons teal-text">Doar</i></a>
                                     </td>
                                 </tr>
                             </c:forEach>

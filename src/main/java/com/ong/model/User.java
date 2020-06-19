@@ -13,7 +13,7 @@ import lombok.Data;
  */
 
 @Data
-@Entity
+@Entity()
 public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
