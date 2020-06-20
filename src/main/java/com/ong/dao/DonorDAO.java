@@ -1,26 +1,21 @@
 package com.ong.dao;
+
+import com.ong.dao.util.ConnectionFactory;
+import com.ong.model.Donor;
 import java.util.List;
 import javax.persistence.EntityManager;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-import com.ong.dao.util.ConnectionFactory;
-import com.ong.model.User;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.MatchMode;
 
 /**
  *
  * @author Martins
  */
+public class DonorDAO {
 
-public class UserDAO {
-
-    public void save(User user) {
+    public void save(Donor donor) {
         EntityManager manager = ConnectionFactory.getEntityManager();
         try {
             manager.getTransaction().begin();
-            manager.persist(user);
+            manager.persist(donor);
             manager.getTransaction().commit();
         } catch (Exception e) {
             manager.getTransaction().rollback();
@@ -31,11 +26,11 @@ public class UserDAO {
         }
     }
 
-    public void update(User user) {
+    public void update(Donor donor) {
         EntityManager manager = ConnectionFactory.getEntityManager();
         try {
             manager.getTransaction().begin();
-            manager.merge(user);
+            manager.merge(donor);
             manager.getTransaction().commit();
         } catch (Exception e) {
             manager.getTransaction().rollback();
@@ -46,13 +41,13 @@ public class UserDAO {
         }
     }
 
-    public void remove(User user) {
+    public void remove(Donor donor) {
         EntityManager manager = ConnectionFactory.getEntityManager();
 
         try {
             manager.getTransaction().begin();
-            User u = manager.find(User.class, user.getCode());
-            manager.remove(u);
+            Donor d = manager.find(Donor.class, donor.getCode());
+            manager.remove(d);
             manager.getTransaction().commit();
         } catch (Exception e) {
             manager.getTransaction().rollback();
@@ -63,11 +58,11 @@ public class UserDAO {
         }
     }
     
-      public User findById(Integer id) {
+      public Donor findById(Integer id) {
         EntityManager em = ConnectionFactory.getEntityManager();
         try {
-            User u = em.find(User.class, id);
-            return u;
+            Donor d = em.find(Donor.class, id);
+            return d;
         } finally {
             if (em.isOpen() && em.getTransaction().isActive()) {
                 em.close();
@@ -75,18 +70,17 @@ public class UserDAO {
         }
     }
 
-    public List<User> findByName(String name) {
+    public List<Donor> findByName(String name) {
         EntityManager em = ConnectionFactory.getEntityManager();
-        List<User> list = em.createQuery("select c from User o where lower(.name) like lower(:name)", User.class)
-                .setParameter("name", "%" + name + "%")
+        List<Donor> list = em.createQuery("select from Donor")
                 .getResultList();
         em.close();
         return list;
     }
 
-    public List<User> findAll() {
+    public List<Donor> findAll() {
         EntityManager em = ConnectionFactory.getEntityManager();
-        List<User> list = em.createQuery("from User", User.class).getResultList();
+        List<Donor> list = em.createQuery("from Donor").getResultList();
         em.close();
         return list;
     }

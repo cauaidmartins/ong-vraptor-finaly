@@ -9,11 +9,6 @@ import com.ong.dao.util.ConnectionFactory;
 import com.ong.model.Ong;
 import java.util.List;
 import javax.persistence.EntityManager;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -67,8 +62,8 @@ public class OngDAO {
             }
         }
     }
-    
-      public Ong findById(Integer id) {
+
+    public Ong findById(Integer id) {
         EntityManager em = ConnectionFactory.getEntityManager();
         try {
             Ong o = em.find(Ong.class, id);
@@ -83,7 +78,6 @@ public class OngDAO {
     public List<Ong> findByName(String name) {
         EntityManager em = ConnectionFactory.getEntityManager();
         List<Ong> list = em.createQuery("select from Ong")
-                .setParameter("name", "%" + name + "%")
                 .getResultList();
         em.close();
         return list;

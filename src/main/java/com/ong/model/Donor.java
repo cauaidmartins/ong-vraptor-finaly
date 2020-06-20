@@ -14,25 +14,23 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import lombok.Data;
 
-
 /**
  *
- * @author Lucas Rasec
+ * @author Martins
  */
 @Data
 @Entity
-public class Ong implements Serializable {
+public class Donor implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ong_gen")
-    @SequenceGenerator(name = "ong_gen", initialValue = 1, allocationSize = 1, sequenceName = "ong_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "donor_gen")
+    @SequenceGenerator(name = "donor_gen", initialValue = 1, allocationSize = 1, sequenceName = "donor_seq")
     private Integer code;
 
     @Column(nullable = false)
     private String name;
 
-    private Number contact;
+    private String donor;
 
-    private String email;
 
 }

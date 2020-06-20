@@ -30,7 +30,7 @@
                          <a href="${pageContext.request.contextPath}/"><span class="fa fa-home"></span>Inicio</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/user/lista"><span class="fa fa-user"></span> Doadores</a>
+                        <a href="${pageContext.request.contextPath}/donor/lista"><span class="fa fa-user"></span> Doadores</a>
                         
                     </li>
                     <li>
