@@ -88,6 +88,8 @@
                                     <td>
                                         <a  class="btn btn-primary" href="${pageContext.request.contextPath}/ong/editar/${ong.code}"><i class="material-icons teal-text">Editar</i></a>
                                         <a  class="btn btn-danger" href="${pageContext.request.contextPath}/ong/remover/${ong.code}"><i class="material-icons red-text">Deletar</i></a>
+                                        <a  class="btn btn-danger" href="${pageContext.request.contextPath}/donor/novo"><i class="material-icons red-text">Doar</i></a>
+        
                                     </td>
                                 </tr>
                             </c:forEach>

@@ -60,7 +60,7 @@ public class DonorController {
         for (Donor donor1 : donor) {
             System.out.println(donor1.getName());
         }
-        result.include("donor", donor);
+        result.include("it", donor);
     }
 
     @Get("remover/{id}")

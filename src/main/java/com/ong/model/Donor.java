@@ -13,11 +13,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author Martins
  */
+@NoArgsConstructor
 @Data
 @Entity
 public class Donor implements Serializable {
@@ -30,7 +32,7 @@ public class Donor implements Serializable {
     @Column(nullable = false)
     private String name;
 
-    private String donor;
+    private String value;
 
 
 }
