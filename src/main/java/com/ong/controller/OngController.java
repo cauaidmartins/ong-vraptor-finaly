@@ -60,7 +60,7 @@ public class OngController {
         for (Ong ong1 : ong) {
             System.out.println(ong1.getName());
         }
-        result.include("ong", ong);
+        result.include("it", ong);
     }
 
     @Get("remover/{id}")

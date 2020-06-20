@@ -14,15 +14,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author Lucas Rasec
  */
+@NoArgsConstructor
 @Data
 @Entity
 public class Ong implements Serializable {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ong_gen")
     @SequenceGenerator(name = "ong_gen", initialValue = 1, allocationSize = 1, sequenceName = "ong_seq")
@@ -32,7 +34,7 @@ public class Ong implements Serializable {
     private String name;
 
     @Column(nullable = false)
-    private Number contact;
+    private String contact;
 
     private String email;
 

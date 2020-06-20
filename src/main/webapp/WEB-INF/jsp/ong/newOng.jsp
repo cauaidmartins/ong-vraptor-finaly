@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
         <title>CadastroOng</title>
 
     </head>
@@ -57,8 +57,9 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="nav navbar-nav ml-auto">
                                 <li class="nav-item active">
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/ong/lista"><i class="fa fa-plus "></i>  Voltar</a>
 
-                                    <a class="nav-link" ><i class="fa fa-plus "></i>  Cadastrar Ong</a>
+                                   
                                 </li>
                             </ul>
                         </div>
@@ -70,8 +71,8 @@
                     <div class="form">
                         <h4>Cadastro de Ongs</h4><br>
                         <form class="login-form" action="novo" method="post">
-                            <input type="text"  name="ong.name" placeholder="Nome" aria-describedby="emailHelp">
-                            <input type="tel"  placeholder="Contato" name="ong.contact">
+                            <input type="text"  name="ong.name" placeholder="Nome">
+                            <input type="text"  placeholder="Contato" name="ong.contact">
                             <input type="email"  placeholder="Email" name="ong.email">
 
                             <button type="submit">Cadastrar</button>
