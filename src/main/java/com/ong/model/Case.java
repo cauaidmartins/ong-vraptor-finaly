@@ -18,18 +18,14 @@ import lombok.Data;
  *
  * @author Lucas Rasec
  */
-
 @Data
 @Entity
 public class Case {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-    private String desc;
-    
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn
-    private Ong ong;
-    
     private Number value;
+    private String desc;
+
 }

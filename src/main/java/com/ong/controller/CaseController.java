@@ -69,7 +69,7 @@ public class CaseController {
 
         Case ca = caseDAO.findById(id);
         result.include("case", ca);
-        caseDAO.remove(id);
+        caseDAO.remove(ca);
         result.redirectTo(this).listCase();
     }
 

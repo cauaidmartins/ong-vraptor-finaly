@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import com.ong.connection.ConnectionFactory;
+import com.ong.dao.util.ConnectionFactory;
 import com.ong.model.User;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.MatchMode;
@@ -16,90 +16,78 @@ import org.hibernate.criterion.MatchMode;
 
 public class UserDAO {
 
-    public User save(User user) {
-        EntityManager em = ConnectionFactory.getConnection();
+    public void save(User user) {
+        EntityManager manager = ConnectionFactory.getEntityManager();
         try {
-            em.getTransaction().begin();
-            em.persist(user);
-            em.getTransaction().commit();
+            manager.getTransaction().begin();
+            manager.persist(user);
+            manager.getTransaction().commit();
         } catch (Exception e) {
-            System.err.println(e);
-            em.getTransaction().rollback();
+            manager.getTransaction().rollback();
         } finally {
-            em.close();
+            if (manager.isOpen() && manager.getTransaction().isActive()) {
+                manager.close();
+            }
         }
-        return user;
     }
 
-    public User update(User user) {
-        EntityManager em = ConnectionFactory.getConnection();
+    public void update(User user) {
+        EntityManager manager = ConnectionFactory.getEntityManager();
         try {
-            em.getTransaction().begin();
-            em.merge(user);
-            em.getTransaction().commit();
+            manager.getTransaction().begin();
+            manager.merge(user);
+            manager.getTransaction().commit();
         } catch (Exception e) {
-            System.err.println(e);
-            em.getTransaction().rollback();
+            manager.getTransaction().rollback();
         } finally {
-            em.close();
+            if (manager.isOpen() && manager.getTransaction().isActive()) {
+                manager.close();
+            }
         }
-        return user;
     }
 
-    public User findById(Integer id) {
-        EntityManager em = ConnectionFactory.getConnection();
-        User user = null;
+    public void remove(User user) {
+        EntityManager manager = ConnectionFactory.getEntityManager();
+
         try {
-            user = em.find(User.class, id);
+            manager.getTransaction().begin();
+            User u = manager.find(User.class, user.getId());
+            manager.remove(u);
+            manager.getTransaction().commit();
         } catch (Exception e) {
-            System.err.println(e);
-            em.getTransaction().rollback();
+            manager.getTransaction().rollback();
         } finally {
-            em.close();
+            if (manager.isOpen() && manager.getTransaction().isActive()) {
+                manager.close();
+            }
         }
-        return user;
+    }
+    
+      public User findById(Integer id) {
+        EntityManager em = ConnectionFactory.getEntityManager();
+        try {
+            User u = em.find(User.class, id);
+            return u;
+        } finally {
+            if (em.isOpen() && em.getTransaction().isActive()) {
+                em.close();
+            }
+        }
+    }
+
+    public List<User> findByName(String name) {
+        EntityManager em = ConnectionFactory.getEntityManager();
+        List<User> list = em.createQuery("select c from User o where lower(.name) like lower(:name)", User.class)
+                .setParameter("name", "%" + name + "%")
+                .getResultList();
+        em.close();
+        return list;
     }
 
     public List<User> findAll() {
-        EntityManager em = ConnectionFactory.getConnection();
-        List<User> user = null;
-
-        try {
-            user = em.createQuery("from users").getResultList();
-            System.out.println(user);
-        } finally {
-            em.close();
-        }
-        return user;
-    }
-
-    public User remove(Integer id) {
-        EntityManager em = ConnectionFactory.getConnection();
-        User user = null;
-        try {
-            em.getTransaction().begin();
-            user = em.find(User.class, id);
-            em.remove(user);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            System.err.println(e);
-            em.getTransaction().rollback();
-        } finally {
-            em.close();
-        }
-        return user;
-    }
-
-    public List<User> findByName(String findByName) {
-        EntityManager em = ConnectionFactory.getConnection();
-
-        Session session = (Session) em.getDelegate();
-        Criteria criteria = session.createCriteria(User.class);
-        Criterion c1 = Restrictions.ilike("name", findByName, MatchMode.ANYWHERE);
-        criteria.add(c1);
-        List<User> user = criteria.list();
+        EntityManager em = ConnectionFactory.getEntityManager();
+        List<User> list = em.createQuery("from User", User.class).getResultList();
         em.close();
-        return user;
+        return list;
     }
-
 }

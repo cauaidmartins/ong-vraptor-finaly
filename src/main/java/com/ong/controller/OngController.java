@@ -68,7 +68,7 @@ public class OngController {
 
         Ong ong = OngDAO.findById(id);
         result.include("ong", ong);
-        OngDAO.remove(id);
+        OngDAO.remove(ong);
         result.redirectTo(this).listOng();
     }
 

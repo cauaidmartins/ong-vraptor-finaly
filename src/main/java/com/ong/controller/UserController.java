@@ -10,6 +10,7 @@ import com.ong.dao.UserDAO;
 import com.ong.model.User;
 import java.util.List;
 import javax.inject.Inject;
+import javax.persistence.Id;
 
 /**
  *
@@ -63,7 +64,7 @@ public class UserController {
 
         User user = userDAO.findById(id);
         result.include("user", user);
-        userDAO.remove(id);
+        userDAO.remove(user);
         result.redirectTo(this).listUser();
     }
 

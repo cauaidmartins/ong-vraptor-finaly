@@ -5,7 +5,7 @@
  */
 package com.ong.dao;
 
-import com.ong.connection.ConnectionFactory;
+import com.ong.dao.util.ConnectionFactory;
 import com.ong.model.Case;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -20,89 +20,78 @@ import org.hibernate.criterion.Restrictions;
  * @author Lucas Rasec
  */
 public class CaseDAO {
-    public Case save(Case ca) {
-        EntityManager em = ConnectionFactory.getConnection();
+  
+    public void save(Case ca) {
+        EntityManager manager = ConnectionFactory.getEntityManager();
         try {
-            em.getTransaction().begin();
-            em.persist(ca);
-            em.getTransaction().commit();
+            manager.getTransaction().begin();
+            manager.persist(ca);
+            manager.getTransaction().commit();
         } catch (Exception e) {
-            System.err.println(e);
-            em.getTransaction().rollback();
+            manager.getTransaction().rollback();
         } finally {
-            em.close();
+            if (manager.isOpen() && manager.getTransaction().isActive()) {
+                manager.close();
+            }
         }
-        return ca;
     }
 
-    public Case update(Case ca) {
-        EntityManager em = ConnectionFactory.getConnection();
+    public void update(Case ca) {
+        EntityManager manager = ConnectionFactory.getEntityManager();
         try {
-            em.getTransaction().begin();
-            em.merge(ca);
-            em.getTransaction().commit();
+            manager.getTransaction().begin();
+            manager.merge(ca);
+            manager.getTransaction().commit();
         } catch (Exception e) {
-            System.err.println(e);
-            em.getTransaction().rollback();
+            manager.getTransaction().rollback();
         } finally {
-            em.close();
+            if (manager.isOpen() && manager.getTransaction().isActive()) {
+                manager.close();
+            }
         }
-        return ca;
     }
 
-    public Case findById(Integer id) {
-        EntityManager em = ConnectionFactory.getConnection();
-        Case ca = null;
+    public void remove(Case ca) {
+        EntityManager manager = ConnectionFactory.getEntityManager();
         try {
-            ca = em.find(Case.class, id);
+            manager.getTransaction().begin();
+            Case c = manager.find(Case.class, ca.getId());
+            manager.remove(c);
+            manager.getTransaction().commit();
         } catch (Exception e) {
-            System.err.println(e);
-            em.getTransaction().rollback();
+            manager.getTransaction().rollback();
         } finally {
-            em.close();
+            if (manager.isOpen() && manager.getTransaction().isActive()) {
+                manager.close();
+            }
         }
-        return ca;
+    }
+    
+      public Case findById(Integer id) {
+        EntityManager em = ConnectionFactory.getEntityManager();
+        try {
+            Case ca = em.find(Case.class, id);
+            return ca;
+        } finally {
+            if (em.isOpen() && em.getTransaction().isActive()) {
+                em.close();
+            }
+        }
+    }
+
+    public List<Case> findByName(String name) {
+        EntityManager em = ConnectionFactory.getEntityManager();
+        List<Case> list = em.createQuery("select c from Ong o where lower(.name) like lower(:name)", Case.class)
+                .setParameter("name", "%" + name + "%")
+                .getResultList();
+        em.close();
+        return list;
     }
 
     public List<Case> findAll() {
-        EntityManager em = ConnectionFactory.getConnection();
-        List<Case> ca = null;
-
-        try {
-            ca = em.createQuery("from Case").getResultList();
-            System.out.println(ca);
-        } finally {
-            em.close();
-        }
-        return ca;
-    }
-
-    public Case remove(Integer id) {
-        EntityManager em = ConnectionFactory.getConnection();
-        Case ca = null;
-        try {
-            em.getTransaction().begin();
-            ca = em.find(Case.class, id);
-            em.remove(ca);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            System.err.println(e);
-            em.getTransaction().rollback();
-        } finally {
-            em.close();
-        }
-        return ca;
-    }
-
-    public List<Case> findByName(String findById) {
-        EntityManager em = ConnectionFactory.getConnection();
-
-        Session session = (Session) em.getDelegate();
-        Criteria criteria = session.createCriteria(Case.class);
-        Criterion c1 = Restrictions.ilike("id", findById, MatchMode.ANYWHERE);
-        criteria.add(c1);
-        List<Case> ca = criteria.list();
+        EntityManager em = ConnectionFactory.getEntityManager();
+        List<Case> list = em.createQuery("from Case", Case.class).getResultList();
         em.close();
-        return ca;
+        return list;
     }
 }
