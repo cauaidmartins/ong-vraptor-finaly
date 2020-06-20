@@ -83,7 +83,7 @@
                             <c:forEach items="${ong}" var="ong">
                                 <tr>
                                     <td>${ong.name}</td>
-                                    <td>${ong.number}</td>
+                                    <td>${ong.contact}</td>
                                     <td>${ong.email}</td>
                                     <td>
                                        

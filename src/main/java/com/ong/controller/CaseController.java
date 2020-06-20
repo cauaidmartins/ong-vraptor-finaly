@@ -59,7 +59,7 @@ public class CaseController {
 
         List<Case> ca = caseDAO.findAll();
         for (Case ca1 : ca) {
-            System.out.println(ca1.getId());
+            System.out.println(ca1.getCode());
         }
         result.include("case", ca);
     }

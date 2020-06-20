@@ -13,7 +13,7 @@ public class OngService {
         if (ong.getName() == null || ong.getName().isEmpty()) {
             throw new LibraryException("Por favor, preencha o nome do cliente!");
         }
-       
+
         ongDAO.save(ong);
     }
 
@@ -25,7 +25,6 @@ public class OngService {
         return ongDAO.findById(id);
     }
 
-   
     public void remove(Ong ong) {
         ongDAO.remove(ong);
     }
@@ -34,7 +33,6 @@ public class OngService {
         return ongDAO.findByName(name);
     }
 
-    
     public List<Ong> list() {
         return ongDAO.findAll();
     }

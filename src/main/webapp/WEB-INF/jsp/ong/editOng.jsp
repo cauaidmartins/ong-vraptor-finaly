@@ -67,9 +67,10 @@
                     <div class="form">
                         <h4>Edição de  Ongs</h4><br>
                         <form class="login-form"  action="${pageContext.request.contextPath}/ong/atualizar" method="post">
-                            <input type="text" placeholder="Nome" name="user.name" value="${ong.name}"  aria-describedby="emailHelp">
-                            <input type="text"  placeholder="Contato" name="user.cpf" value="${ong.contact}">
-                             <textarea class="form-control" placeholder="Descrição" id="textarea" name="ong.desc" value="${ong.contact}" rows="1"></textarea><br>
+                            <input type="text" placeholder="Nome" name="ong.name" value="${ong.name}"  aria-describedby="emailHelp">
+                            <input type="tel"  placeholder="Contato" name="ong.contact" value="${ong.contact}">
+                            <input type="email"  placeholder="Email" name="ong.email" value="${ong.email}">
+                             
                             <button>Editar</button>
                         </form>
 

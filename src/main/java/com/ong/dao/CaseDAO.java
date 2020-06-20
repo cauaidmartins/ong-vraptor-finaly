@@ -55,7 +55,7 @@ public class CaseDAO {
         EntityManager manager = ConnectionFactory.getEntityManager();
         try {
             manager.getTransaction().begin();
-            Case c = manager.find(Case.class, ca.getId());
+            Case c = manager.find(Case.class, ca.getCode());
             manager.remove(c);
             manager.getTransaction().commit();
         } catch (Exception e) {

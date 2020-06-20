@@ -51,7 +51,7 @@ public class UserDAO {
 
         try {
             manager.getTransaction().begin();
-            User u = manager.find(User.class, user.getId());
+            User u = manager.find(User.class, user.getCode());
             manager.remove(u);
             manager.getTransaction().commit();
         } catch (Exception e) {

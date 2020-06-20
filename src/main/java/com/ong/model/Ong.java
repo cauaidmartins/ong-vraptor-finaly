@@ -11,29 +11,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author Lucas Rasec
  */
-
 @Data
-@Entity 
+@Entity
 public class Ong implements Serializable {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
-    
-    @Column(unique = true)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ong_gen")
+    @SequenceGenerator(name = "ong_gen", initialValue = 1, allocationSize = 1, sequenceName = "ong_seq")
+    private Integer code;
+
+    @Column(nullable = false)
     private String name;
-    
-    @Column(nullable = false)
+
     private Number contact;
-    
-    @Column(nullable = false)
+
     private String email;
-    
-   
-        
+
 }

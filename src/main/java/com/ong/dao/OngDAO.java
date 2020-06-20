@@ -56,7 +56,7 @@ public class OngDAO {
 
         try {
             manager.getTransaction().begin();
-            Ong o = manager.find(Ong.class, ong.getId());
+            Ong o = manager.find(Ong.class, ong.getCode());
             manager.remove(o);
             manager.getTransaction().commit();
         } catch (Exception e) {

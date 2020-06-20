@@ -71,7 +71,7 @@
                         <h4>Cadastro de Ongs</h4><br>
                         <form class="login-form" action="novo" method="post">
                             <input type="text"  name="name" placeholder="Nome" aria-describedby="emailHelp">
-                            <input type="tel"  placeholder="Contato" name="number">
+                            <input type="tel"  placeholder="Contato" name="contact">
                             <input type="email"  placeholder="Email" name="email">
 
                             <button>Cadastrar</button>
