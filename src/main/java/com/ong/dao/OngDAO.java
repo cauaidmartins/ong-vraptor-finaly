@@ -17,7 +17,7 @@ import javax.persistence.EntityManager;
 public class OngDAO {
 
     public void save(Ong ong) {
-        EntityManager manager = ConnectionFactory.getEntityManager();
+       EntityManager manager = ConnectionFactory.getEntityManager();
         try {
             manager.getTransaction().begin();
             manager.persist(ong);

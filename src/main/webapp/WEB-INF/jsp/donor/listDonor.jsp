@@ -1,4 +1,4 @@
-w<%-- 
+<%-- 
     Document   : Login
     Created on : 16/04/2020, 11:49:57
     Author     : Martins
@@ -40,8 +40,8 @@ w<%--
 
                     <div class="footer">
                         <p>
-                        <h7 class="logo">Seja bem vindo, <%= request.getAttribute("user")%> </h7></p>
-                        <a href="login.jsp" class="logo">Deslogar</a>
+                        <h7 class="logo">Seja bem vindo </h7></p>
+                        <a href="${pageContext.request.contextPath}/signin" class="logo">Deslogar</a>
                     </div>
             </nav>
 
@@ -79,7 +79,7 @@ w<%--
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${user}" var="user">
+                            <c:forEach items="${it}" var="user">
                                 <tr>
                                     <td>${user.name}</td>
                                     <td>${user.value}</td>

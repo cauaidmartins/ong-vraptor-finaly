@@ -7,13 +7,13 @@ package com.ong.model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import lombok.Data;
-
 
 /**
  *
@@ -31,6 +31,7 @@ public class Ong implements Serializable {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private Number contact;
 
     private String email;

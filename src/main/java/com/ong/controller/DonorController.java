@@ -73,11 +73,11 @@ public class DonorController {
     }
 
     @Public
-    @Post("listar")
+    @Post("busca")
     public void listaSearch(String donorName) {
 
         List<Donor> donor = (List<Donor>) DonorDAO.findByName(donorName);
-        result.include("donor", donor);
+        result.include("it", donor);
         result.of(this).listDonor();
 
     }

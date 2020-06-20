@@ -73,11 +73,11 @@ public class OngController {
     }
 
     @Public
-    @Post("listar")
+    @Post("busca")
     public void simpleSearch(String ongName) {
 
         List<Ong> ong = (List<Ong>) OngDAO.findByName(ongName);
-        result.include("ong", ong);
+        result.include("it", ong);
         result.of(this).listOng();
 
     }

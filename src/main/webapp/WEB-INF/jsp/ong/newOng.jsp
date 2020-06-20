@@ -37,8 +37,8 @@
 
                     <div class="footer">
                         <p>
-                        <h7 class="logo">Seja bem vindo, <%= request.getAttribute("user")%> </h7></p>
-                        <a href="login.jsp" class="logo">Deslogar</a>
+                        <h7 class="logo">Seja bem vindo </h7></p>
+                        <a href="${pageContext.request.contextPath}/signin"class="logo">Deslogar</a>
                     </div>
             </nav>
 

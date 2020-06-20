@@ -40,8 +40,8 @@
 
                     <div class="footer">
                         <p>
-                        <h7 class="logo">Seja bem vindo, <%= request.getAttribute("user")%> </h7></p>
-                        <a href="login.jsp" class="logo">Deslogar</a>
+                        <h7 class="logo">Seja bem vindo </h7></p>
+                        <a href="${pageContext.request.contextPath}/singnin" class="logo">Deslogar</a>
                     </div>
             </nav>
 
@@ -61,7 +61,7 @@
                             <ul class="nav navbar-nav ml-auto">
                                 <li class="nav-item active">
 
-                                    <a class="nav-link" href="${pageContext.request.contextPath}/ong/novo"><i class="fa fa-plus "></i>  Cadastrar Ong</a>
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/ong/lista"><i class="fa fa-plus "></i>Cadastrar Ong</a>
                                 </li>
                             </ul>
                         </div>
@@ -80,7 +80,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${ong}" var="ong">
+                            <c:forEach items="${it}" var="ong">
                                 <tr>
                                     <td>${ong.name}</td>
                                     <td>${ong.contact}</td>
