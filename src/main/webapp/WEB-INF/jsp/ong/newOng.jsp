@@ -70,11 +70,11 @@
                     <div class="form">
                         <h4>Cadastro de Ongs</h4><br>
                         <form class="login-form" action="novo" method="post">
-                            <input type="text"  name="name" placeholder="Nome" aria-describedby="emailHelp">
-                            <input type="tel"  placeholder="Contato" name="contact">
-                            <input type="email"  placeholder="Email" name="email">
+                            <input type="text"  name="ong.name" placeholder="Nome" aria-describedby="emailHelp">
+                            <input type="tel"  placeholder="Contato" name="ong.contact">
+                            <input type="email"  placeholder="Email" name="ong.email">
 
-                            <button>Cadastrar</button>
+                            <button type="submit">Cadastrar</button>
                         </form>
 
                     </div>
